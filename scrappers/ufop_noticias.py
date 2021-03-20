@@ -14,6 +14,7 @@ def get_hash(field):
 def ufop_noticias(old_articles, old_page_hash):
     msg = "Nova notícia publicada pela UFOP"
     site = "ufop_noticias"
+    main_url = 'https://www.ufop.br'
 
     max_news_per_page = 6
     max_pages_to_fetch = 15
@@ -44,10 +45,9 @@ def ufop_noticias(old_articles, old_page_hash):
 
             for article in articles_titles:
                 article_title = article.text
-                article_url = 'https://www.ufop.br' + article.find('a', href=True)['href']
+                article_url = main_url + article.find('a', href=True)['href']
 
                 if article_url not in old_articles:
-                    print(article_url)
                     results.append({'title': article_title, 'url': article_url, 'msg': msg, 'site': site})
 
             if len(results) >= max_news_per_page * (page + 1) and page <= max_pages_to_fetch:
