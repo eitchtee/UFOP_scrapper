@@ -93,6 +93,12 @@ if __name__ == '__main__':
         q.handle_results('ufop_noticias', *s.ufop_noticias(q.get_old_articles('ufop_noticias'),
                                                            q.get_hash('ufop_noticias')))
 
+        q.handle_results('proex_noticias', *s.proex_noticias(q.get_old_articles('proex_noticias'),
+                                                             q.get_hash('proex_noticias')))
+
+        q.handle_results('propp_noticias', *s.propp_noticias(q.get_old_articles('propp_noticias'),
+                                                             q.get_hash('propp_noticias')))
+
         q.send_and_clear()
 
         sleep(waiting_minutes * 60)
