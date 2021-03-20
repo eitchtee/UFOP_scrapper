@@ -99,6 +99,9 @@ if __name__ == '__main__':
         q.handle_results('propp_noticias', *s.propp_noticias(q.get_old_articles('propp_noticias'),
                                                              q.get_hash('propp_noticias')))
 
+        q.handle_results('prograd_comunicados', *s.prograd_comunicados(q.get_old_articles('prograd_comunicados'),
+                                                                       q.get_hash('prograd_comunicados')))
+
         q.send_and_clear()
 
         sleep(waiting_minutes * 60)
